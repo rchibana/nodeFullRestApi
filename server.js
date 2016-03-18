@@ -2,13 +2,22 @@ var express = require("express");
 var app = express();
 var fs = require("fs");
 
-app.get('/listUsers', function(req, res){
+app.get('/', function(req, res){
 	
-	fs.readFile( __dirname + "/" + "users.json", "utf8", function(err, data){
-		console.log(data);
-		res.end( data );
-	});
+	res.send( "Hello World!" );
 
+});
+
+app.post("/", function(req, res){
+	res.send(" It's a post ");
+});
+
+app.put("/", function(req, res){
+	res.send("it's me! Mario!");
+});
+
+app.delete("/", function(req, res){
+	res.send("it's a delete command!");
 });
 
 var server = app.listen(8081, function(){
